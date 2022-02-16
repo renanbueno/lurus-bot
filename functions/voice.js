@@ -25,23 +25,23 @@ export const init = async (client) => {
             console.log("The connection has entered the Ready state - ready to play audio!");
 
             // Subscribe the connection to the audio player (will play audio on the voice connection)
-            const subscription = connection.subscribe(player);
+            // const subscription = connection.subscribe(player);
 
-            // subscription could be undefined if the connection is destroyed!
-            if (subscription) {
-              player.play(resource);
+            // // subscription could be undefined if the connection is destroyed!
+            // if (subscription) {
+            //   player.play(resource);
 
-              player.on("error", (error) => {
-                console.error(error);
-              });
+            //   player.on("error", (error) => {
+            //     console.error(error);
+            //   });
 
-              player.on(AudioPlayerStatus.Idle, () => {
-                const newResource = createAudioResource("../resources/woof.mp3");
-                player.play(newResource);
-              });
-              // Unsubscribe after 5 seconds (stop playing audio on the voice connection)
-              setTimeout(() => subscription.unsubscribe(), 5_000);
-            }
+            //   player.on(AudioPlayerStatus.Idle, () => {
+            //     const newResource = createAudioResource("../resources/woof.mp3");
+            //     player.play(newResource);
+            //   });
+            //   // Unsubscribe after 5 seconds (stop playing audio on the voice connection)
+            //   setTimeout(() => subscription.unsubscribe(), 5_000);
+            //}
           });
         } catch (error) {
           console.error(error);
