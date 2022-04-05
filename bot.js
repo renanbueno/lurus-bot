@@ -1,14 +1,23 @@
 import express from "express";
+import * as https from "https";
+
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "0.0.0.0";
 
 const server = express();
 
 server.all("/", (req, res) => {
   res.send("Server is running!");
+  console.log("Server is running!");
 });
 
 function keepAlive() {
-  server.listen(3000, () => {
+  server.listen(PORT, HOST, () => {
     console.log("Bot is alive!");
+
+    setInterval(function () {
+      https.get("https://lurus-bot.herokuapp.com/");
+    }, 300000);
   });
 }
 
