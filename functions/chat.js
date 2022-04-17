@@ -17,7 +17,6 @@ export const init = async (client) => {
   fromEvent(client, "messageCreate").subscribe((message) => {
     const msg = message.content.toString().toLowerCase();
     const azar = Math.round(Math.random() * 99) + 1;
-    console.log(message);
 
     if (message.author.bot) return;
 
@@ -33,6 +32,6 @@ export const init = async (client) => {
 
     if (msg == "não" || msg == "nao" || msg == "n") return message.channel.send("https://c.tenor.com/Or_pMDyHdygAAAAd/no-no-no-nope.gif");
 
-    if (azar <= 5) return message.channel.send(azarList[Math.floor(Math.random() * (9 - 0 + 1)) + 0]);
+    if (azar <= 1) return message.channel.send(azarList[Math.floor(Math.random() * (9 - 0 + 1)) + 0]);
   });
 };
