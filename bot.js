@@ -7,7 +7,6 @@ const HOST = process.env.HOST || "0.0.0.0";
 const server = express();
 
 server.all("/", (req, res) => {
-  res.send("Server is running!");
   console.log("Server is running!");
 });
 
