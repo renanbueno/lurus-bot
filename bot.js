@@ -22,7 +22,7 @@ function keepAlive() {
 
 export const start = async (client) => {
   (await import("./functions/chat.js")).init(client);
-  (await import("./functions/voice.js")).init(client);
-  (await import("./functions/commands.js")).init(client);
+  //(await import("./functions/voice.js")).init(client);
+  //(await import("./functions/commands.js")).init(client);
   keepAlive();
 };
